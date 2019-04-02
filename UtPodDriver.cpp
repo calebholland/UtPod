@@ -133,6 +133,53 @@ int main() {
     def.showSongList();
     cout << endl;
 
+    //Test all Song set and gets:
+
+    cout << "Song gets and sets testing: ------------------------------" << endl;
+    cout << "default declaration: ";
+    Song s10;
+    cout << "artist: " << s10.getArtist() << "title: " << s10.getTitle() << "size" << s10.getSize() <<endl <<endl;
+    cout << "can we add this song?" <<def.addSong(s10) << endl;
+    cout << "using sets: " <<endl;
+    s10.setArtist("Bay City Rollers");
+    s10.setTitle("Don't Worry Baby");
+    s10.setSize(4);
+    cout << "artist: " << s10.getArtist() << " title: " << s10.getTitle() << " size: " << s10.getSize() <<endl <<endl;
+    cout << "If song is invalid (artist or title are blank or size negative), can we add? Setting title to blank, size to -3" << endl;
+    s10.setTitle("");
+    s10.setSize(-3);
+    cout << "result of addSong: " << def.addSong(s10) <<endl<<endl;
+
+
+    cout << "Test removing song: --------------------------------------------" <<endl;
+    cout << "Before removing: remaining size: " << def.getRemainingMemory()<<endl;
+    def.showSongList();
+    cout << "remove Wings' London Town: " <<endl;
+    def.removeSong(s5);
+    cout << "New remaining size: " << def.getRemainingMemory() << endl;
+    def.showSongList();
+    cout << endl<<endl;
+    cout << "Can we add London Town back if its size is 500 MB, exceeding the Ipod's size?" <<endl;
+    cout << "Remaining memory: " << def.getRemainingMemory() << endl;
+    s5.setSize(500);
+    cout << "Lond town size is: " << s5.getSize() << endl;
+    cout << "result of attempted add is: " <<def.addSong(s5) <<endl<<endl;
+
+    cout << "Clearing memory test: ----------------------------------------" <<endl;
+    cout << "Current song list: " <<endl;
+    def.showSongList();
+    cout << "Current available memory: " <<def.getRemainingMemory() <<endl;
+    def.clearMemory();
+    cout << "Cleared song list: " <<endl;
+    def.showSongList();
+    cout <<endl;
+    cout << "Current available memory (after clearing): " <<def.getTotalMemory() << endl;
+
+
+
+    //Test removeSong
+    //Test clearmemory
+
 /*
     t.removeSong(s3);
     cout << "with Hey Jude3 removed: " << endl;

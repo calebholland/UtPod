@@ -85,6 +85,7 @@ using namespace std;
             cout << "deleted a pointer" << endl;
             ptr = nextPtr;
         }
+        songs = nullptr;
     }
 
     int UtPod::getNumberSongs() {
