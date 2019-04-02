@@ -23,10 +23,12 @@ private:
 
     static const int MAX_SIZE = 512;
 public:
+    //Constructors
     Song();
     Song(string title);
     Song(string artist, string title, int size);
 
+    //Sets and gets
     string getTitle() const{
         return title;
     }
@@ -38,11 +40,13 @@ public:
     int getSize() const;
     void setSize(int _size);
 
+
+    //Operator overloading
     bool operator >(Song const &rhs);
     bool operator <(Song const &rhs);
     bool operator ==(Song const &rhs);
 
-
+    //Default constructor used (no allocated memory associated with the song class)
     ~Song();
 };
 

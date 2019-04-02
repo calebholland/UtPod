@@ -9,13 +9,13 @@ using namespace std;
     Song::Song(){
         title = "";
         artist = "";
-        size = MAX_SIZE; //Should this change to 0?
+        size = 0; //Should this change to 0?
     }
 
     Song::Song(string _title){
         title = _title;
         artist = "";
-        size = MAX_SIZE; //Should this change to 0?
+        size = 0; //Should this change to 0?
     }
 
     Song::Song(string _artist, string _title, int _size){

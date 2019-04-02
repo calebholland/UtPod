@@ -13,7 +13,7 @@ using namespace std;
         songs = nullptr;
         unsigned int nowTime = (unsigned)time(0);
         srand(nowTime);
-        cout << "nowTime is " << nowTime << endl;
+        //cout << "nowTime is " << nowTime << endl;
     }
 
     UtPod::UtPod(int size){
@@ -26,7 +26,7 @@ using namespace std;
         songs = nullptr;
         unsigned int nowTime = (unsigned)time(0);
         srand(nowTime);
-        cout << "nowTime is " << nowTime << endl;
+        //cout << "nowTime is " << nowTime << endl;
     }
 
     int UtPod::addSong(Song const &s) {
@@ -82,7 +82,7 @@ using namespace std;
         while (ptr != nullptr) {
             nextPtr = ptr->next;
             delete (ptr);
-            cout << "deleted a pointer" << endl;
+            //cout << "deleted a pointer" << endl;
             ptr = nextPtr;
         }
         songs = nullptr;
@@ -148,61 +148,60 @@ using namespace std;
 
 
 
-        /*
-        SongNode* rightPtr = songs->next;
-        SongNode* rightPtr2 = songs->next;
-        SongNode* leftPtr = songs;
-        SongNode* lowest = songs;
-        SongNode* prevLowest = songs;
-        SongNode* prevRightPtr = songs;
-        SongNode* prevLeftPtr = songs;
-        if( (leftPtr == nullptr) || (rightPtr == nullptr)){
-            return;
-        }
-        while(leftPtr != nullptr){
-            lowest = leftPtr;
-            while(rightPtr2 != nullptr) {
-                prevRightPtr = rightPtr;
-                rightPtr = rightPtr2;
-                if(rightPtr != prevRightPtr) {
-                    if (rightPtr->s < lowest->s) {
-                        lowest = rightPtr;
-                        prevLowest = prevRightPtr;
-                    }
-                }
-                else {
-                    if (rightPtr->s < lowest->s) {
-                        lowest = rightPtr;
-                        //prevLowest = leftPtr;
-                        prevLowest = prevRightPtr;
-                    }
-                }
-                rightPtr2 = rightPtr->next;
-            }
-            if(lowest != leftPtr) {
-                if (leftPtr != songs) {
-                    prevLowest->next = lowest->next;
-                    prevLeftPtr->next = lowest;
-                    lowest->next = leftPtr;
-                }
-                else {
-                    songs = lowest;
-                    prevLowest->next = lowest->next;
-                    lowest->next = leftPtr;
-                }
-            }
-            prevLeftPtr = lowest;
-            leftPtr = prevLeftPtr->next;
-            rightPtr2 = leftPtr->next;
-            rightPtr = leftPtr->next;
-        }
-         */
-
-
-
-
-
-
     UtPod::~UtPod(){
         UtPod::clearMemory();
     }
+
+
+
+
+
+/* Pointer changing version of sort (abandoned, much more complicated and clunky/non functional):
+SongNode* rightPtr = songs->next;
+SongNode* rightPtr2 = songs->next;
+SongNode* leftPtr = songs;
+SongNode* lowest = songs;
+SongNode* prevLowest = songs;
+SongNode* prevRightPtr = songs;
+SongNode* prevLeftPtr = songs;
+if( (leftPtr == nullptr) || (rightPtr == nullptr)){
+    return;
+}
+while(leftPtr != nullptr){
+    lowest = leftPtr;
+    while(rightPtr2 != nullptr) {
+        prevRightPtr = rightPtr;
+        rightPtr = rightPtr2;
+        if(rightPtr != prevRightPtr) {
+            if (rightPtr->s < lowest->s) {
+                lowest = rightPtr;
+                prevLowest = prevRightPtr;
+            }
+        }
+        else {
+            if (rightPtr->s < lowest->s) {
+                lowest = rightPtr;
+                //prevLowest = leftPtr;
+                prevLowest = prevRightPtr;
+            }
+        }
+        rightPtr2 = rightPtr->next;
+    }
+    if(lowest != leftPtr) {
+        if (leftPtr != songs) {
+            prevLowest->next = lowest->next;
+            prevLeftPtr->next = lowest;
+            lowest->next = leftPtr;
+        }
+        else {
+            songs = lowest;
+            prevLowest->next = lowest->next;
+            lowest->next = leftPtr;
+        }
+    }
+    prevLeftPtr = lowest;
+    leftPtr = prevLeftPtr->next;
+    rightPtr2 = leftPtr->next;
+    rightPtr = leftPtr->next;
+}
+ */
